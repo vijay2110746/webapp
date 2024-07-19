@@ -54,7 +54,7 @@
 </head>
 <body>
     <div class="login-container">
-        <h2>Welcome to login Mr.${name}</h2>
+        <h2>Welcome to login</h2>
         <form action="/login" method="POST">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" required>

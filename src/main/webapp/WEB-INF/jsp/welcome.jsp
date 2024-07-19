@@ -54,7 +54,9 @@
 </head>
 <body>
     <div class="login-container">
-        <h2>Welcome back Mr.${name} </h2>
+	<h2>Welcome ${name}</h2>
+        
+       <a href="todo-see">Manage</a>your todos
 
     </div>
 </body>
