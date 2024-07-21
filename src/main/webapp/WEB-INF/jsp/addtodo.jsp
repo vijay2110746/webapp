@@ -11,8 +11,11 @@
 		<div class="container">
 		<h2>Welcome ${name}</h2>
 			<h1>Add Todos</h1>
-			<form:form method="post">
-				Description: <input type="text" name = "description">
+			<form:form method="post" modelAttribute="todo">
+				Description: <form:input type="text" name = "description" required="required" path="description"></form:input>
+				<form:errors name = "description"  path="description"/>
+				<form:input type="hidden" name = "description"  path="id"></form:input>
+				<form:input type="hidden" name = "description"  path="done"></form:input>
 				<input type="submit" class="btn btn-success" >
 			</form:form>
 		</div>

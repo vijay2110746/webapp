@@ -2,6 +2,7 @@ package com.springboot.webapp.todo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 import org.springframework.stereotype.Service;
 
@@ -26,4 +27,10 @@ public class ToDoService {
 		
 	}
 
+	public void DeleteToDo(int id) {
+		
+		Predicate<? super ToDo> predicate = todo->todo.getId() ==id;
+		todos.removeIf(predicate);
+		
+	}
 }

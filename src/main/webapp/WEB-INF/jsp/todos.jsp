@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
+
+
 <html>
 	<head>
 		<link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" >
@@ -26,6 +28,7 @@
 							<td>${todo.description}</td>
 							<td>${todo.name}</td>
 							<td>${todo.done}</td>
+							<td><a href="deletetodo?id=${todo.id}">Delete</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
