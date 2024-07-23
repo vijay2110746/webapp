@@ -1,5 +1,6 @@
 package com.springboot.webapp.todo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
@@ -16,15 +17,16 @@ public class ToDoService {
 	private static List<ToDo> todos = new ArrayList<ToDo>();
 	
 	static {
-		todos.add(new ToDo(++listCount,"learn something","AWS",false));
+		LocalDate dueDate = LocalDate.now().plusYears(1);
+		todos.add(new ToDo(++listCount,"learn something","AWS",dueDate,false));
 	}
 	
 	public List<ToDo> getByUserName(){
 		return todos;
 	} 
 	
-	public void addToDo(String username, String description) {
-		ToDo todo=new ToDo(++listCount,username , description, false);
+	public void addToDo(String username, String description, LocalDate dueDate) {
+		ToDo todo=new ToDo(++listCount,username , description,dueDate ,false);
 		todos.add(todo);
 		
 	}

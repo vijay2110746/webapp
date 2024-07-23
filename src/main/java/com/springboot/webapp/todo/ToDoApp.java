@@ -1,5 +1,6 @@
 package com.springboot.webapp.todo;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -39,7 +40,8 @@ public class ToDoApp {
 	@RequestMapping(value = "add-todo" , method=RequestMethod.GET)
 	public String addTodo(ModelMap model) {
 		String username = (String)model.get("name");
-		ToDo todo = new ToDo(0,username,"",false);
+		LocalDate dueDate = LocalDate.now().plusYears(1);
+		ToDo todo = new ToDo(0,username,"",dueDate,false);
 		model.put("todo", todo);
 
 		return "addtodo";
@@ -51,9 +53,9 @@ public class ToDoApp {
 			return "addtodo";
 		}
 
-		todoservice.addToDo((String)model.get("name"), todo.getDescription());
+		todoservice.addToDo((String)model.get("name"), todo.getDescription(),todo.getTargetDate());
 		return "redirect:todo-see";
-	}
+	} 
 	
 	@RequestMapping(value = "deletetodo")
 	public String deleteTodo(@RequestParam int id) {
