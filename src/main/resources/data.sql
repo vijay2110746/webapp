@@ -1,0 +1,1 @@
+insert into TO_DO (ID,NAME,DESCRIPTION,TARGET_DATE,DONE) values (1001,'Vijay Veerasekaran' , 'Learn Cloud',CURRENT_DATE(),false);

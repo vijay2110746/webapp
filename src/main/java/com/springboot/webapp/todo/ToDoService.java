@@ -21,8 +21,9 @@ public class ToDoService {
 		todos.add(new ToDo(++listCount,"learn something","AWS",dueDate,false));
 	}
 	
-	public List<ToDo> getByUserName(){
-		return todos;
+	public List<ToDo> getByUserName(String username){
+		Predicate<? super ToDo> predicate = todo->todo.getName().equalsIgnoreCase(username);
+		return todos.stream().filter(predicate).toList();
 	} 
 	
 	public void addToDo(String username, String description, LocalDate dueDate) {
